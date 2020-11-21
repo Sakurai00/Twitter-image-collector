@@ -8,6 +8,10 @@ ACCESS_TOKEN_KEY = os.environ.get("TW_ACC_TOKEN")
 ACCESS_TOKEN_SECRET = os.environ.get("TW_ACC_TOKEN_SEC")
 
 
-TARGET_WORD = "#百鬼絵巻"
-#TARGET_WORD = "#ホロライブ運動会"
 SEARCH_NUM = 500
+TARGET_WORD = "#ヌォンタート"
+"""
+#シオンの書物
+#百鬼絵巻
+#ヌォンタート
+"""

@@ -1,4 +1,4 @@
-import tweepy, os, urllib
+import tweepy, os, urllib, time
 import settings as st
 
 auth = tweepy.OAuthHandler(st.CONSUMER_KEY, st.CONSUMER_SECRET)
@@ -17,22 +17,27 @@ def search():
             for tweet_media in tweet.entities["media"]:
                 url = tweet_media["media_url_https"]
                 download(url)
-                show(url, pic, sum)
+                print(pic, "/", sum, url)
 
 def download(url):
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(".\\image")
     if not os.path.exists(st.TARGET_WORD):
         os.mkdir(st.TARGET_WORD)
+
     path = os.path.join(st.TARGET_WORD, url.split('/')[-1])
     url += ":orig"
-    urllib.request.urlretrieve(url, path)
 
-def show(url, pic, sum):
-    print(pic, "/", sum, url)
+    try:
+        urllib.request.urlretrieve(url, path)
+    except Exception as e:
+        pass
 
 def main():
+    t1 = time.time()
     search()
+    t2 = time.time()
+    print(t2 - t1, "sec")
 
 if __name__ == '__main__':
     main()
