@@ -26,8 +26,13 @@ def make_dir(search_str):
 def search(search_str):
     sum = 1
     pic = 0
-    q = search_str + "exclude:retweets"
+    if str(st.MIN_FAV) == 0:
+        q = search_str + " filter:images exclude:retweets"
+    else:
+        q = search_str + " filter:images exclude:retweets min_faves:" + str(st.MIN_FAV)
+
     tweets = tweepy.Cursor(api.search, q = q).items(st.SEARCH_NUM)
+
     for tweet in tweets:
         sum += 1
         if "media" in tweet.entities:

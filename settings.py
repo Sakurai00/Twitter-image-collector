@@ -8,7 +8,8 @@ ACCESS_TOKEN_KEY = os.environ.get("TW_ACC_TOKEN")
 ACCESS_TOKEN_SECRET = os.environ.get("TW_ACC_TOKEN_SEC")
 
 
-SEARCH_NUM = 50
+SEARCH_NUM = 500
+MIN_FAV = 100
 TARGET_WORD = "#みおーん絵"
 
 
