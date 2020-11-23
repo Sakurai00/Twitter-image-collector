@@ -8,9 +8,12 @@ ACCESS_TOKEN_KEY = os.environ.get("TW_ACC_TOKEN")
 ACCESS_TOKEN_SECRET = os.environ.get("TW_ACC_TOKEN_SEC")
 
 
-SEARCH_NUM = 500
-TARGET_WORD = "#ヌォンタート"
+SEARCH_NUM = 50
+TARGET_WORD = "#プロテインザスバル"
+
+
 """
+#プロテインザスバル
 #シオンの書物
 #百鬼絵巻
 #ヌォンタート
