@@ -60,16 +60,15 @@ def download(url):
 def main():
     t1 = time.time()
 
-    if st.NO_INPUT == True:
-        search_str = st.TARGET_WORD
-    else:
-        search_str = set_search_str()
-
     if st.MULTI_SEARCH == True:
         for search_str in st.MULTI_TARGET_WORD:
             make_dir(search_str)
             search(search_str)
     else:
+        if st.NO_INPUT == True:
+            search_str = st.TARGET_WORD
+        else:
+            search_str = set_search_str()
         make_dir(search_str)
         search(search_str)
 
