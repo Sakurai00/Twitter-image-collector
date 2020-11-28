@@ -8,9 +8,10 @@ ACCESS_TOKEN_KEY = os.environ.get("TW_ACC_TOKEN")
 ACCESS_TOKEN_SECRET = os.environ.get("TW_ACC_TOKEN_SEC")
 
 
-SEARCH_NUM = 500
-MIN_FAV = 100
-TARGET_WORD = "#みおーん絵"
+NO_INPUT = True
+SEARCH_NUM = 1000
+MIN_FAV = 50
+TARGET_WORD = "#シオンの書物"
 
 
 """
@@ -18,4 +19,9 @@ TARGET_WORD = "#みおーん絵"
 #シオンの書物
 #百鬼絵巻
 #ヌォンタート
+"""
+
+"""
+API 15 min / 180(user) 450(app)
+3200 tweets ?
 """

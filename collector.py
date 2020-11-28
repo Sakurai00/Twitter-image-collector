@@ -6,8 +6,9 @@ auth.set_access_token(st.ACCESS_TOKEN_KEY, st.ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 def set_search_str():
-    buf = input("use default word -> 1 :")
-    if buf == str(1):
+    buf = input("use default word -> 0 :")
+
+    if buf == str(0):
         return st.TARGET_WORD
     else:
         return buf
@@ -30,7 +31,7 @@ def search(search_str):
         q = search_str + " filter:images exclude:retweets"
     else:
         q = search_str + " filter:images exclude:retweets min_faves:" + str(st.MIN_FAV)
-
+    print(q)
     tweets = tweepy.Cursor(api.search, q = q).items(st.SEARCH_NUM)
 
     for tweet in tweets:
@@ -59,7 +60,11 @@ def download(url):
 def main():
     t1 = time.time()
 
-    search_str = set_search_str()
+    if st.NO_INPUT == True:
+        search_str = st.TARGET_WORD
+    else:
+        search_str = set_search_str()
+
     make_dir(search_str)
     search(search_str)
 
