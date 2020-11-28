@@ -9,16 +9,24 @@ ACCESS_TOKEN_SECRET = os.environ.get("TW_ACC_TOKEN_SEC")
 
 
 NO_INPUT = True
+MULTI_SEARCH = True
+
 SEARCH_NUM = 1000
 MIN_FAV = 50
 TARGET_WORD = "#シオンの書物"
-
+MULTI_TARGET_WORD = [
+    "#プロテインザスバル",
+    "#シオンの書物",
+    "#百鬼絵巻",
+    "#みおーん絵"
+    ]
 
 """
 #プロテインザスバル
 #シオンの書物
 #百鬼絵巻
 #ヌォンタート
+#みおーん絵
 """
 
 """
