@@ -10,7 +10,7 @@ ACCESS_TOKEN_SECRET = os.environ.get("TW_ACC_TOKEN_SEC")
 
 
 SEARCH_NUM = 1000
-MIN_FAV = 50
+MIN_FAV = 300
 
 NO_INPUT = True
 TARGET_WORD = "#シオンの書物"
