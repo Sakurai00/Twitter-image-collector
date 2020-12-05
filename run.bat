@@ -1,4 +1,3 @@
 @echo off
-cd /d %~dp0
-python -u ".\collector.py"
+python -u "E:\Users\Sakurai\OneDrive\Code\Project\twitter image collector\collector.py"
 pause
