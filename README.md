@@ -1,6 +1,6 @@
 # Twitter-image-collector
 
-ツイートの詮索結果に含まれる画像ファイルを.\image\TARGET_WORD\に保存する
+ツイートの検索結果に含まれる画像ファイルを.\image\TARGET_WORD\に保存する
 
 ## Requirement
 - python 3.8.5
