@@ -12,16 +12,19 @@ ACCESS_TOKEN_SECRET = os.environ.get("TW_ACC_TOKEN_SEC")
 SEARCH_NUM = 1000
 MIN_FAV = 300
 
-NO_INPUT = True
+NO_INPUT = False
 TARGET_WORD = "#シオンの書物"
 
 MULTI_SEARCH = True
 MULTI_TARGET_WORD = [
-    "#プロテインザスバル",
     "#みおーん絵",
+    "#プロテインザスバル",
     "#シオンの書物",
     "#百鬼絵巻",
-    "#あくあーと"
+    "#あくあーと",
+    "#はあとart",
+    "#絵かゆ",
+    "#絵クロマンサー"
     ]
 
 
@@ -32,9 +35,7 @@ MULTI_TARGET_WORD = [
 #百鬼絵巻
 #みおーん絵
 #ヌォンタート
-"""
-
-"""
-API 15 min / 180(user) 450(app)
-3200 tweets ?
+#はあとart
+#絵かゆ
+#絵クロマンサー
 """

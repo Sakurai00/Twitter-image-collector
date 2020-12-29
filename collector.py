@@ -1,9 +1,16 @@
-import tweepy, os, urllib, time
+import os
+import time
+import urllib
+
+import tweepy
+
 import settings as st
+
 
 auth = tweepy.OAuthHandler(st.CONSUMER_KEY, st.CONSUMER_SECRET)
 auth.set_access_token(st.ACCESS_TOKEN_KEY, st.ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+
 
 def set_search_str():
     buf = input("use default word -> 0 :")
@@ -13,6 +20,7 @@ def set_search_str():
     else:
         return buf
 
+
 def make_dir(search_str):
     # cd .\\image
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -20,9 +28,10 @@ def make_dir(search_str):
     # 検索ワードのフォルダが無ければ作成
     if not os.path.exists(search_str):
         os.mkdir(search_str)
-    # cd .\\search_str
+    # cd .\\<search_str>
     os.chdir(search_str)
     return
+
 
 def search(search_str):
     sum = 1
@@ -44,6 +53,7 @@ def search(search_str):
                 download(url)
     return
 
+
 def download(url):
     file_name = url.split('/')[-1]
     url += ":orig"
@@ -56,6 +66,7 @@ def download(url):
         except Exception as e:
             print("Error")
     return
+
 
 def main():
     t1 = time.time()
@@ -75,6 +86,7 @@ def main():
     t2 = time.time()
     print(t2 - t1, "sec")
     return
+
 
 if __name__ == '__main__':
     main()
