@@ -3,9 +3,9 @@
 ツイートの検索結果に含まれる画像を.\image\TARGET_WORD\に保存する
 
 ## Requirement
-- Windows10
-- python 3.8.5
-- tweepy 3.9.0
+- Windows
+- python 3.9.2
+- tweepy 3.10.0
 
 
 ## Installation
