@@ -4,13 +4,11 @@ import urllib
 
 import tweepy
 
+import twapi
 import settings as st
 
 
-auth = tweepy.OAuthHandler(st.CONSUMER_KEY, st.CONSUMER_SECRET)
-auth.set_access_token(st.ACCESS_TOKEN_KEY, st.ACCESS_TOKEN_SECRET)
-api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
-
+api = twapi.generate_api()
 
 def set_search_str():
     buf = input("use default word -> 0 :")
