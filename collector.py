@@ -11,6 +11,12 @@ import settings as st
 api = twapi.generate_api()
 
 def set_search_str():
+    """ 入力orコンフィグファイルから検索ワードを取得してセットする
+
+    Returns:
+        String: 検索ワード
+    """
+
     buf = input("use default word -> 0 :")
 
     if buf == str(0):
@@ -20,18 +26,27 @@ def set_search_str():
 
 
 def make_dir(search_str):
-    # cd .\\image
+    """ ディレクトリを作成する
+
+    Args:
+        search_str (String): 検索ワード
+    """
+
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(".\\image")
-    # 検索ワードのフォルダが無ければ作成
     if not os.path.exists(search_str):
         os.mkdir(search_str)
-    # cd .\\<search_str>
     os.chdir(search_str)
     return
 
 
 def search(search_str):
+    """ 検索ワードで検索して画像をダウンロードする
+
+    Args:
+        search_str (String): 検索ワード
+    """
+
     sum = 1
     pic = 0
     if str(st.MIN_FAV) == 0:
@@ -53,6 +68,12 @@ def search(search_str):
 
 
 def download(url):
+    """ Twitterのmediaリンクから画像をダウンロードする
+
+    Args:
+        url (String): Twitter media link
+    """
+
     file_name = url.split('/')[-1]
     url += ":orig"
     if os.path.isfile(file_name):
