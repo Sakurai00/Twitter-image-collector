@@ -4,13 +4,14 @@
 
 ## Requirement
 - Windows
-- python 3.9.2
-- tweepy 3.10.0
+- python 3.9.6
+- tweepy
+- python-dotenv
 
 
 ## Installation
 ```bash
-pip install tweepy
+poetry install
 ```
 
 .envにtokenを書く
