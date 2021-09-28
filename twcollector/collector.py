@@ -5,11 +5,11 @@ import pathlib
 
 import tweepy
 
-import twapi
-import settings as st
+from twapi.twapi import generate_api
+import twcollector.settings as st
 
 
-api = twapi.generate_api()
+api = generate_api()
 
 def set_search_str():
     """ 入力orコンフィグファイルから検索ワードを取得してセットする
@@ -33,7 +33,7 @@ def make_dir(search_str):
         search_str (String): 検索ワード
     """
 
-    base_dir = pathlib.Path(__file__).parent.resolve()
+    base_dir = pathlib.Path(__file__).parent.parent.resolve()
     path = base_dir / "images" / search_str
     if not path.exists():
         path.mkdir(parents=True)
@@ -106,7 +106,3 @@ def main():
     t2 = time.time()
     print(t2 - t1, "sec")
     return
-
-
-if __name__ == '__main__':
-    main()
