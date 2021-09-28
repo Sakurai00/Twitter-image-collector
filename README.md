@@ -1,6 +1,6 @@
 # Twitter-image-collector
 
-ツイートの検索結果に含まれる画像を.\image\TARGET_WORD\に保存する
+ツイートの検索結果に含まれる画像を.\images\TARGET_WORD\に保存する
 
 ## Requirement
 - Windows
