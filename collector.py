@@ -1,6 +1,7 @@
 import os
 import time
 import urllib
+import pathlib
 
 import tweepy
 
@@ -32,11 +33,11 @@ def make_dir(search_str):
         search_str (String): 検索ワード
     """
 
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    os.chdir(".\\image")
-    if not os.path.exists(search_str):
-        os.mkdir(search_str)
-    os.chdir(search_str)
+    base_dir = pathlib.Path(__file__).parent.resolve()
+    path = base_dir / "images" / search_str
+    if not path.exists():
+        path.mkdir(parents=True)
+    os.chdir(path)
     return
 
 
