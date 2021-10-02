@@ -11,8 +11,9 @@ import twcollector.settings as st
 
 api = generate_api()
 
+
 def set_search_str():
-    """ 入力orコンフィグファイルから検索ワードを取得してセットする
+    """入力orコンフィグファイルから検索ワードを取得してセットする
 
     Returns:
         String: 検索ワード
@@ -27,7 +28,7 @@ def set_search_str():
 
 
 def make_dir(search_str):
-    """ ディレクトリを作成する
+    """ディレクトリを作成する
 
     Args:
         search_str (String): 検索ワード
@@ -42,7 +43,7 @@ def make_dir(search_str):
 
 
 def search(search_str):
-    """ 検索ワードで検索して画像をダウンロードする
+    """検索ワードで検索して画像をダウンロードする
 
     Args:
         search_str (String): 検索ワード
@@ -55,7 +56,7 @@ def search(search_str):
     else:
         q = search_str + " filter:images exclude:retweets min_faves:" + str(st.MIN_FAV)
     print(q)
-    tweets = tweepy.Cursor(api.search, q = q).items(st.SEARCH_NUM)
+    tweets = tweepy.Cursor(api.search, q=q).items(st.SEARCH_NUM)
 
     for tweet in tweets:
         sum += 1
@@ -63,19 +64,19 @@ def search(search_str):
             pic += 1
             for tweet_media in tweet.entities["media"]:
                 url = tweet_media["media_url_https"]
-                print(pic, "/", sum, " ",end = "")
+                print(pic, "/", sum, " ", end="")
                 download(url)
     return
 
 
 def download(url):
-    """ Twitterのmediaリンクから画像をダウンロードする
+    """Twitterのmediaリンクから画像をダウンロードする
 
     Args:
         url (String): Twitter media link
     """
 
-    file_name = url.split('/')[-1]
+    file_name = url.split("/")[-1]
     url += ":orig"
     if os.path.isfile(file_name):
         print("pass")
@@ -84,19 +85,19 @@ def download(url):
         try:
             urllib.request.urlretrieve(url, file_name)
         except Exception as e:
-            print("Error")
+            print("Error" + e)
     return
 
 
 def main():
     t1 = time.time()
 
-    if st.MULTI_SEARCH == True:
+    if st.MULTI_SEARCH is True:
         for search_str in st.MULTI_TARGET_WORD:
             make_dir(search_str)
             search(search_str)
     else:
-        if st.NO_INPUT == True:
+        if st.NO_INPUT is True:
             search_str = st.TARGET_WORD
         else:
             search_str = set_search_str()

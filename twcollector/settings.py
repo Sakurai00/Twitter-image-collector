@@ -15,8 +15,8 @@ MULTI_TARGET_WORD = [
     "#絵かゆ",
     "#絵クロマンサー",
     "#ししらーと",
-    "#LamyArt"
-    ]
+    "#LamyArt",
+]
 
 
 """
