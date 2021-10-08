@@ -1,11 +1,8 @@
 SEARCH_NUM = 1000
 MIN_FAV = 800
 
-NO_INPUT = True
-TARGET_WORD = "#まのあろ絵"
 
-MULTI_SEARCH = True
-MULTI_TARGET_WORD = [
+TARGET_WORDS = [
     "#みおーん絵",
     "#プロテインザスバル",
     "#シオンの書物",
