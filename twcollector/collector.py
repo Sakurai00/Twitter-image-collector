@@ -56,7 +56,7 @@ def search(search_str):
     else:
         q = search_str + " filter:images exclude:retweets min_faves:" + str(st.MIN_FAV)
     print(q)
-    tweets = tweepy.Cursor(api.search, q=q).items(st.SEARCH_NUM)
+    tweets = tweepy.Cursor(api.search_tweets, q=q).items(st.SEARCH_NUM)
 
     for tweet in tweets:
         sum += 1

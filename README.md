@@ -5,7 +5,7 @@
 ## Requirement
 - Windows
 - python 3.9.6
-- tweepy
+- tweepy 4.0.1
 - python-dotenv
 
 
