@@ -1,6 +1,6 @@
 # Twitter-image-collector
 
-ツイートの検索結果に含まれる画像を.\images\TARGET_WORD\に保存する
+ツイートの検索結果に含まれる画像を./images/TARGET_WORD/に保存する
 
 ## Requirement
 - Windows
@@ -22,10 +22,9 @@ TW_ACC_TOKEN=***
 TW_ACC_TOKEN_SEC=***
 ```
 
-## Settings
-- NO_INPUT = True  
-TARGET_WORDをコンソールから入力させず、settings.pyのTARGET_WORDで検索を実行する。
+## Usage
+```bash
+poetry run python -m twcollector
 
-
-- MULTI_SEARCH = True  
-MULTI_SEARCHを実行する。(NO_INPUTかどうか問わず)
+poetry run python -m twcollector -s "#Hololive"
+```

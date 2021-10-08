@@ -1,30 +1,15 @@
+import argparse
 import os
+import pathlib
 import time
 import urllib
-import pathlib
 
 import tweepy
-
 from twapi.twapi import generate_api
+
 import twcollector.settings as st
 
-
 api = generate_api()
-
-
-def set_search_str():
-    """入力orコンフィグファイルから検索ワードを取得してセットする
-
-    Returns:
-        String: 検索ワード
-    """
-
-    buf = input("use default word -> 0 :")
-
-    if buf == str(0):
-        return st.TARGET_WORD
-    else:
-        return buf
 
 
 def make_dir(search_str):
@@ -90,19 +75,19 @@ def download(url):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Twitter image collector")
+    parser.add_argument("-s", "--search", help="search word")
+    arg = parser.parse_args()
+
     t1 = time.time()
 
-    if st.MULTI_SEARCH is True:
-        for search_str in st.MULTI_TARGET_WORD:
+    if arg.search is None:
+        for search_str in st.TARGET_WORDS:
             make_dir(search_str)
             search(search_str)
-    else:
-        if st.NO_INPUT is True:
-            search_str = st.TARGET_WORD
-        else:
-            search_str = set_search_str()
-        make_dir(search_str)
-        search(search_str)
+    elif arg.search is not None:
+        make_dir(arg.search)
+        search(arg.search)
 
     t2 = time.time()
     print(t2 - t1, "sec")
