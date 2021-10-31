@@ -27,19 +27,20 @@ def make_dir(search_str):
     return
 
 
-def search(search_str):
+def search(search_str, min_fav):
     """検索ワードで検索して画像をダウンロードする
 
     Args:
         search_str (String): 検索ワード
+        min_fav (String): 最低fav数
     """
 
     sum = 1
     pic = 0
-    if str(st.MIN_FAV) == 0:
+    if min_fav == 0:
         q = search_str + " filter:images exclude:retweets"
     else:
-        q = search_str + " filter:images exclude:retweets min_faves:" + str(st.MIN_FAV)
+        q = search_str + " filter:images exclude:retweets min_faves:" + min_fav
     print(q)
     tweets = tweepy.Cursor(api.search_tweets, q=q).items(st.SEARCH_NUM)
 
@@ -77,17 +78,23 @@ def download(url):
 def main():
     parser = argparse.ArgumentParser(description="Twitter image collector")
     parser.add_argument("-s", "--search", help="search word")
+    parser.add_argument("-f", "--fav", help="min fav")
     arg = parser.parse_args()
 
     t1 = time.time()
 
+    min_fav = st.MIN_FAV
+    if arg.fav is not None:
+        min_fav = arg.fav
+    min_fav = str(min_fav)
+
     if arg.search is None:
         for search_str in st.TARGET_WORDS:
             make_dir(search_str)
-            search(search_str)
+            search(search_str, min_fav)
     elif arg.search is not None:
         make_dir(arg.search)
-        search(arg.search)
+        search(arg.search, min_fav)
 
     t2 = time.time()
     print(t2 - t1, "sec")
