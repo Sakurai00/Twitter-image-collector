@@ -2,7 +2,7 @@ import argparse
 import os
 import pathlib
 import time
-import urllib
+import urllib.request
 
 import tweepy
 from twapi.twapi import generate_api
@@ -69,9 +69,11 @@ def download(url):
     else:
         print(url)
         try:
-            urllib.request.urlretrieve(url, file_name)
-        except Exception as e:
-            print("Error" + e)
+            res = urllib.request.urlopen(url).read()
+            with open(file_name, "wb") as f:
+                f.write(res)
+        except urllib.error.HTTPError as e:
+            print(e.reason)
     return
 
 
